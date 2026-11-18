@@ -1,0 +1,22 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Audit {
+  id                    String   @id @default(uuid())
+  url                   String
+  performanceScore      Int
+  accessibilityScore    Int
+  seoScore              Int
+  bestPracticesScore    Int
+  rawMetrics            Json     // Armazena dados detalhados (LCP, CLS, etc.)
+  createdAt             DateTime @default(now())
+
+  @@index([url])
+  @@map("audits")
+}

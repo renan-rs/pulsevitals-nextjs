@@ -1,0 +1,46 @@
+{
+  "name": "pulsevitals-nextjs",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "test": "vitest",
+    "test:e2e": "playwright test",
+    "postinstall": "prisma skills sync || exit 0"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.19.1",
+    "framer-motion": "^11.3.21",
+    "lucide-react": "^0.428.0",
+    "next": "14.2.5",
+    "react": "^18",
+    "react-dom": "^18"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.46.1",
+    "@tailwindcss/turbopack": "4.3.3",
+    "@testing-library/jest-dom": "^6.4.8",
+    "@testing-library/react": "^16.0.0",
+    "@types/node": "^22",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "@vitejs/plugin-react": "^4.3.1",
+    "eslint": "^9",
+    "eslint-config-next": "16.4.6",
+    "jsdom": "^24.1.0",
+    "postcss": "^8",
+    "prisma": "^5.19.0",
+    "tailwindcss": "3.4.1",
+    "typescript": "^5",
+    "vitest": "^2.1.0"
+  },
+  "allowScripts": {
+    "@prisma/client@5.22.0": true,
+    "@prisma/engines@5.22.0": true,
+    "esbuild@0.21.5": true,
+    "prisma@5.22.0": true
+  }
+}
