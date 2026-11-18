@@ -13,7 +13,7 @@ export async function runPageSpeedAudit(
     });
 
     // Adiciona as 4 categorias principais do Lighthouse
-    ['performace', 'accessibility', 'seo', 'best-practices'].forEach((cat) => 
+    ['performance', 'accessibility', 'seo', 'best-practices'].forEach((cat) => 
         params.append('category', cat)
     );
 

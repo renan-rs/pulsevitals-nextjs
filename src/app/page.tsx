@@ -1,3 +1,4 @@
+import { AuditHistoryList } from "@/components/AuditHistoryList";
 import { Hero } from "@/components/Hero";
 import { Terminal, ShieldCheck, Zap } from "lucide-react";
 
@@ -51,6 +52,10 @@ export default function Home() {
               Backend robusto estruturado em serviços modulares, persistência com Prisma e total cobertura de testes TDD.
             </p>
           </div>
+        </div>
+        {/* Listagem de Histórico de Auditorias */}
+        <div className="max-w-4xl mx-auto pt-4">
+            <AuditHistoryList />
         </div>
       </section>
 
