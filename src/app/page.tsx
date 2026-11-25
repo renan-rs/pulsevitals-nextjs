@@ -38,7 +38,7 @@ export default function Home() {
             </div>
             <h3 className="text-lg font-bold text-white mb-2 font-mono">Auditoria de Acessibilidade</h3>
             <p className="text-slate-400 text-sm">
-              Detecção automática de falhas de a11y com sugestões inteligentes de correção no formato "Antes e Depois".
+              Detecção automática de falhas de a11y com sugestões inteligentes de correção no formato Antes e Depois.
             </p>
           </div>
 

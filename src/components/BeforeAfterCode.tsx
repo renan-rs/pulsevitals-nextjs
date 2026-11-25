@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Code, CheckCircle, AlertTriangle, ArrowRight } from 'lucide-react';
+import { Code, CheckCircle, AlertTriangle } from 'lucide-react';
 
 interface BeforeAfterCodeProps {
     title: string;

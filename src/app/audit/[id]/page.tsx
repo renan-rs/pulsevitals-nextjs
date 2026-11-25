@@ -3,6 +3,7 @@ import { WebVitalsGrid } from '@/components/WebVitalsGrid';
 import { AccessibilityAudit } from '@/components/AccessibilityAudit';
 import Link from 'next/link';
 import { ArrowLeft, Globe } from 'lucide-react';
+import { ExportPdfButton } from '@/components/ExportPdfButton';
 
 interface AuditPageProps {
     params: {
@@ -35,13 +36,17 @@ export default async function AuditReportPage({ params }: AuditPageProps) {
         <main className="min-h-screen bg-cyber-bg text-slate-100 p-6 md:p-12">
             <div className="max-w-6xl mx-auto space-y-8">
 
-                {/* Header com botão de voltar */}
-                <div className="flex items-center justify-between border-b border-cyber-border pb-4">
-                    <Link href="/" className="inline-flex items-center gap-2 text-slate-400 hover:text-cyber-cyan transition-colors text-sm font-mono">
+                {/* Header com botão de voltar e exportar */}
+                <div className="flex flex-wrap items-center justify-between gap-4 border-b border-cyber-border pb-4">
+                    <Link href="/" className="inline-flex items-center gap-2 text-slate-400 hover:text-cyber-cyan transition-colors text-sm font-mono print:hidden">
                         <ArrowLeft className="w-4 h-4" /> Voltar ao Início
                     </Link>
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyber-surface border border-cyber-border text-xs font-mono text-cyber-cyan">
-                        <Globe className="w-3.5 h-3.5" /> ID da Auditoria: {id}
+
+                    <div className="flex items-center gap-3">
+                        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-cyber-surface border border-cyber-border text-xs font-mono text-cyber-cyan">
+                            <Globe className="w-3.5 h-3.5" /> ID: {id}
+                        </div>
+                        <ExportPdfButton />
                     </div>
                 </div>
 
