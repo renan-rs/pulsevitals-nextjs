@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { History, ExternalLink, ShieldCheck, AlertCircle } from 'lucide-react';
+import { History, ExternalLink } from 'lucide-react';
 
 interface AuditItem {
     id: string;
@@ -18,13 +18,23 @@ export function AuditHistoryList() {
     useEffect(() => {
         async function fetchAudits() {
             try {
-                const response = await fetch('/api/audit'); // Endpoint GET que criamos na Fase 1
+                const response = await fetch('/api/audit');
                 const data = await response.json();
+
                 if (response.ok) {
-                    setAudits(data);
+                    if (Array.isArray(data)) {
+                        setAudits(data);
+                    } else if (Array.isArray(data?.audits)) {
+                        setAudits(data.audits);
+                    } else {
+                        setAudits([]);
+                    }
+                } else {
+                    setAudits([]);
                 }
             } catch (error) {
                 console.error('Erro ao buscar histórico:', error);
+                setAudits([]);
             } finally {
                 setLoading(false);
             }
@@ -40,7 +50,9 @@ export function AuditHistoryList() {
         );
     }
 
-    if (audits.length === 0) {
+    const auditList = Array.isArray(audits) ? audits : [];
+
+    if (auditList.length === 0) {
         return (
             <div className="bg-cyber-surface border border-cyber-border rounded-xl p-6 text-center text-slate-400 font-mono text-sm">
                 Nenhuma auditoria realizada ainda. Insira uma URL acima para começar!
@@ -54,8 +66,11 @@ export function AuditHistoryList() {
                 <History className="w-5 h-5 text-cyber-cyan" /> Auditorias Recentes
             </h3>
             <div className="grid grid-cols-1 gap-3">
-                {audits.map((audit) => {
-                    const scorePercent = Math.round(audit.performanceScore * 100);
+                {auditList.map((audit) => {
+                    const rawScore = audit.performanceScore ?? 0;
+                    const normalizedScore = rawScore <= 1 ? rawScore * 100 : rawScore;
+                    const scorePercent = Math.min(100, Math.max(0, Math.round(normalizedScore)));
+                    //const scorePercent = Math.round((audit.performanceScore ?? 0) * 100);
                     return (
                         <div
                             key={audit.id}

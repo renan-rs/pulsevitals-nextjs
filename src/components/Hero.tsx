@@ -3,8 +3,10 @@
 import { motion } from 'framer-motion';
 import { UrlInputForm } from './UrlInputForm';
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 export function Hero() {
+    const router = useRouter();
     const [isLoading, setIsLoading] = useState(false);
 
     const handleAuditSubmit = async (url: string) => {
@@ -19,13 +21,10 @@ export function Hero() {
             const data = await response.json();
             if (!response.ok) throw new Error(data.error || 'Erro ao auditar');
 
-            console.log('Auditoria realizada com sucesso:', data);
-            // Na Fase 3 redirecionaremos ou exibiremos o resultado no Dashboard
-            alert(`Auditoria concluída! ID: ${data.id} - Performance: ${data.performanceScore}`);
+            router.push(`/audit/${data.id}`);
         } catch (err: unknown) {
             const message = err instanceof Error ? err.message : 'Erro desconhecido';
             alert(`Erro: ${message}`);
-        } finally {
             setIsLoading(false);
         }
     };
