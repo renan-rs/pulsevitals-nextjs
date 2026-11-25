@@ -8,8 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "test": "vitest",
-    "test:e2e": "playwright test",
-    "postinstall": "prisma skills sync || exit 0"
+    "test:e2e": "playwright test"
   },
   "dependencies": {
     "@prisma/client": "^5.19.1",
