@@ -60,17 +60,12 @@ Recommended for running the complete production-like containerized environment w
    ```
 
    *(To run in detached mode in the background, add `-d`: `docker compose up --build -d`)*
+   **It will apply Prisma database migrations (first-time setup):**
 
-2. **Apply Prisma database migrations (first-time setup):**
-
-   ```bash
-   docker compose exec app npx prisma migrate deploy
-   ```
-
-3. **Access the application:**
+2. **Access the application:**
    Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-4. **Stop the containers:**
+3. **Stop the containers:**
 
    ```bash
    docker compose down
