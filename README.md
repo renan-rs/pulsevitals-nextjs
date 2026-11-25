@@ -6,6 +6,13 @@ Web platform for performance auditing, Core Web Vitals analysis, and technical r
 
 **PulseVitals** enables users to audit any public URL, inspect detailed performance metrics on a dedicated report page (`/audit/[id]`), browse past audits from the home dashboard, and export styled PDF reports directly from the browser.
 
+## Live Demo
+
+- **Production App:** [https://pulsevitals.vercel.app/](https://pulsevitals.vercel.app/)
+- **Hosting & Database:** Deployed on **Vercel** with a serverless **PostgreSQL** database hosted on **Neon**.
+
+> **Note:** You can run live URL audits directly on the demo link above, inspect historical audit results, and export detailed reports as PDFs.
+
 ### Key Features
 
 * **URL Performance Auditing:** Run performance audits with automatic result persistence in PostgreSQL.
