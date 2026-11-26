@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: "PulseVitals - Performance & SEO Auditing",
@@ -15,6 +16,7 @@ export default function RootLayout({
     <html lang="pt-BR" className="dark">
       <body className="bg-[#05050A] text-slate-100 antialiased min-h-screen">
         {children}
+        <Analytics />
       </body>
     </html>
   );
