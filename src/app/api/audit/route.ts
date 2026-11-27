@@ -4,6 +4,8 @@ import { runPageSpeedAudit } from '@/services/pagespeed.service';
 import { cleanUrl } from '@/utils/formatters';
 import { Prisma } from '@prisma/client';
 
+export const maxDuration = 60;
+
 export async function POST(request: NextRequest) {
     try {
         const body = await request.json();
